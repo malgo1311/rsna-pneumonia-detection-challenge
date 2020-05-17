@@ -2,9 +2,10 @@
 
 My solution to this kaggle challenge - https://www.kaggle.com/c/rsna-pneumonia-detection-challenge/overview
 
-Public Score - 0.21354
+#### Public Score - 0.21354
 
-All the training and prediction was done on Google Colab using GPU. Have included the training and the prediction script. Let's dive deeper into each step. 
+#### All the training and prediction was done on Google Colab using GPU. 
+Have included the training and the prediction script. Let's dive deeper into each step. 
 
 ## 1. Data Preparation
 
