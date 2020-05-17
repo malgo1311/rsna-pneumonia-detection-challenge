@@ -1,6 +1,7 @@
 # rsna-pneumonia-detection-challenge
 
 Below is my solution to this kaggle challenge - https://www.kaggle.com/c/rsna-pneumonia-detection-challenge/overview
+
 I am trying this 2 years after the challenge was conducted, so all the numbers I specify below are Stage 2 related only.
 
 #### Stage 2 Public Score - 0.21354 (Not great but in top 25 of the LB :| )
