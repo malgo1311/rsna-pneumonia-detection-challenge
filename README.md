@@ -17,7 +17,11 @@ Train - 4000 positive images + 4000 negative images
 
 Test - 400 positive images + 400 negative images
 
-Even though this is an object detection problem, I wanted the model to learn the negative images as well because that reduces the False Positives as essentially the model knows what normal lungs look like. I randonmly created the train and test set, and generated the tfrecords using the script 'generate_tfrecords.py'. It also covers including the negative images inside the tfrecords.
+Even though this is an object detection problem, I wanted the model to learn the negative images as well because that reduces the False Positives as essentially the model knows what normal lungs look like. 
+
+The images provided were DICOM images. And they all were gray scale with fixed size of 1024 x 1024, even the test set. As far as I know the OD checkpoints work with 3-channel images, so I decided to first convert these images to jpgs and then stacked the image matrix thrice, the end image size was 1024 x 1024 x 3.
+
+I randomly created the train and test set, and generated the tfrecords using the script 'generate_tfrecords.py'. It also covers including the negative images inside the tfrecords.
 
 ## 2. Pretrained Checkpoints
 I was doing this exercise as a part of a job interview so I wanted to get back with test result in just a couple of days, so I decided to try just the following two architectures which I had worked on extensively in the past -
@@ -41,7 +45,7 @@ While training from the SSD checkpoint, I realised that we cannot use hard_negat
 Note: hard_negative_miner config is important when using hard negative examples in training your object detection model.
 
 ## 4. Evalutation on Kaggle Test Set
-Before making the predictions, I resized the image to 512 x 512. I know there is a resizer layer in the frozen_inference_graph.pb but in my past experiences I have seen better results with prior resizing. I tried thresholding the boxes with score > 0.5 but I got the best result with score > 0.3.
+I have directly used the predictions made on the test set without any post-processing. I tried filtering the boxes with score > 0.5 but I got the best result with score > 0.3.
 
 ## 5. Thoughts
 
